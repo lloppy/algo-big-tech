@@ -2,14 +2,23 @@ fun main() {
     val first = ListNode(1)
     val second = ListNode(2)
     val third = ListNode(3)
-    val fourth = ListNode(4)
+
+    val first1 = ListNode(5)
+    val second1 = ListNode(6)
+    val third1 = ListNode(7)
+
 
 // Связывание элементов
     first.next = second
     second.next = third
-    third.next = fourth
+    third.next = third1
 
-    Solution().reorderList(first)
+
+    first1.next = second1
+    second1.next = third1
+
+
+    Solution().getIntersectionNode(first, first1)
 }
 
 class ListNode(var `val`: Int) {
@@ -17,50 +26,14 @@ class ListNode(var `val`: Int) {
 }
 
 class Solution {
-    fun reorderList(head: ListNode?): Unit {
-        val leftMiddle = findLeftMiddle(head)
-        val reverseSecond = reverse(leftMiddle)
+    fun getIntersectionNode(headA:ListNode?, headB:ListNode?):ListNode? {
+        var p1 = headA
+        var p2 = headB
 
-        var p1: ListNode? = head
-        var p2: ListNode? = reverseSecond
-        while (p2 != null) {
-            val temp1 = p1?.next
-            p1?.next = p2
-            p1 = p2
-            p2 = temp1
+        while (p1 != p2) {
+            p1 = if (p1 == null) headB else p1.next
+            p2 = if (p2 == null) headA else p2.next
         }
-
-        return
+        return p1
     }
-
-    private fun findLeftMiddle(head: ListNode?): ListNode {
-        var fast = head
-        var slow = head
-
-        while (fast != null && fast?.next != null && fast?.next?.next != null){
-            fast = fast?.next?.next
-            slow = slow?.next
-        }
-
-        return slow!!
-
-    }
-
-
-    private fun reverse(head: ListNode?): ListNode {
-        var prev: ListNode? = null
-        var curr: ListNode? = head
-
-        while (curr != null) {
-            val temp = curr
-            curr = curr.next
-            temp.next = prev
-            prev = temp
-        }
-
-        return prev!!
-
-    }
-
-
 }
