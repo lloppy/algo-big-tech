@@ -8,6 +8,6 @@
 # Связный список
 
 1. https://leetcode.com/problems/reverse-linked-list/
-2. 
+2. https://leetcode.com/problems/palindrome-linked-list/
 
 ---

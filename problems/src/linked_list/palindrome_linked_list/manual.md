@@ -14,16 +14,71 @@
 # 1. Решение
 
 ```kotlin
+/**
+ * Example:
+ * var li = ListNode(5)
+ * var v = li.`val`
+ * Definition for singly-linked list.
+ * class ListNode(var `val`: Int) {
+ *     var next: ListNode? = null
+ * }
+ */
+class Solution {
+    fun isPalindrome(head: ListNode?): Boolean {
+        val midElement = findMiddle(head)
+        val reversedNodes = reverse(midElement)
 
+        var p1: ListNode? = head
+        var p2: ListNode? =  reversedNodes
+           while (p2 != null && p1 != null) {
+            if (p1?.`val` != p2?.`val`){
+                return false
+            }
+            p1 = p1?.next
+            p2 = p2?.next
+        }
+        return true
+    }
+
+    private fun reverse(midElement: ListNode): ListNode {
+        var prev: ListNode? = null
+        var curr:ListNode? = midElement
+
+        while (curr != null){
+            val temp = curr
+            curr = curr?.next
+            temp.next = prev
+            prev = temp
+        }
+        return prev!!
+    }
+
+
+    private fun findMiddle(head: ListNode?): ListNode {
+        var slow = head
+        var fast = head
+
+        while (fast != null && fast?.next != null){
+            slow = slow?.next
+            fast = fast?.next?.next
+        }
+        return slow!!
+
+    }
+}
 ```
 
 
 # 2. Оценка по времени
-
+O(n)
 
 # 3. Оценка по памяти
-
+O(1)
 
 # 4. Ваши объяснения
+1. ищем середину - это будет последний элемент второго списка
+2. переворачиваем второй список. mid элемент будет ссылаться на нул. Нул будет указывать на выход из цикла при сравнении p1 и p2
+3. сравниваем p1 и p2
+
 
 
