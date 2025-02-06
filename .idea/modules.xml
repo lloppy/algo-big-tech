@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/algo-big-tech.iml" filepath="$PROJECT_DIR$/algo-big-tech.iml" />
+      <module fileurl="file://$PROJECT_DIR$/problems/problems.iml" filepath="$PROJECT_DIR$/problems/problems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/retry-list/retry-list.iml" filepath="$PROJECT_DIR$/retry-list/retry-list.iml" />
     </modules>
   </component>
 </project>
