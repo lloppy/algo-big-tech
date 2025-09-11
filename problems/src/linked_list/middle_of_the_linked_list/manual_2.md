@@ -23,28 +23,28 @@
  *     var next: ListNode? = null
  * }
  */
-
 class Solution {
-    fun getIntersectionNode(headA:ListNode?, headB:ListNode?):ListNode? {
-        var p1 = headA
-        var p2 = headB
+    fun middleNode(head: ListNode?): ListNode? {
+               
+       var slow = head
+       var fast = head
 
-       while (p1 != p2) {
-            p1 = if (p1 == null) headB else p1.next
-            p2 = if (p2 == null) headA else p2.next
-        }
-        return p1
+       while(fast != null && fast?.next != null){
+            slow = slow?.next
+            fast = fast?.next?.next
+       }
+         return slow
     }
 }
 ```
 
 
 # 2. Оценка по времени
-O(m+n)
+
 
 # 3. Оценка по памяти
-O(1)
+
 
 # 4. Ваши объяснения
-проходка уравновешивается перескоком на голову другого списка.
+два указателя. быстрый и медленный.
 

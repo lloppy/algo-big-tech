@@ -1,4 +1,5 @@
 # ДНЕВНИК РЕШЕНИЙ
+https://leetcode.com/problems/symmetric-tree/
 
 > https://ya.cc/t/ywoxUuAd6B8mmr
 
@@ -26,7 +27,7 @@
  */
 class Solution {
  fun isSymmetric(root: TreeNode?): Boolean {
-              
+        if(root == null) return true
         return shouldBeSame(root?.left, root?.right)
     }
     
@@ -34,7 +35,9 @@ class Solution {
         if(l == null || r == null){
             return l == null && r == null
         }
-        
+        //или так if (l == null || r == null) return l == r
+
+
         if(l.`val` != r.`val`) return false
         return shouldBeSame(l.left, r.right) && shouldBeSame(l.right, r.left)
          

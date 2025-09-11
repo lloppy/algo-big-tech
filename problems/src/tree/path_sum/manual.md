@@ -24,7 +24,9 @@ class Solution {
         if(isLeaf(root)) {
             if(currSum + root.`val` == targetSum) return true
         }
-        
+        //или: if(isLeaf(node)) return node.`val` + currSum == target
+
+
         return checkCurrSum(root.left, currSum + root.`val`, targetSum) || checkCurrSum(root.right, currSum + root.`val`, targetSum)
     }
     
