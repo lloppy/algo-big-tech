@@ -1,12 +1,14 @@
 package a_tasks_yandex
 
 fun main(){
-    val givenStr = "Flatten Nested List Iterator\n" +
-            "Implement Queue using Stacks\n" +
-            "Evaluate Reverse Polish Notation\n" +
-            "Simplify Path\n" +
-            "Max Stack\n" +
-            "Maximal Rectangle"
+    val givenStr = "Subarray Sum Equals K\n" +
+            "Group Anagrams\n" +
+            "Insert Delete GetRandom O(1)\n" +
+            "LRU Cache\n" +
+            "Two Sum\n" +
+            "Jewels and Stones\n" +
+            "Intersection of Two Arrays II\n" +
+            "First Unique Character in a String"
     val prettyStr = givenStr
         .lowercase()
         .replace(" ", "_")
