@@ -1,14 +1,17 @@
 package a_tasks_yandex
 
 fun main(){
-    val givenStr = "Subarray Sum Equals K\n" +
-            "Group Anagrams\n" +
-            "Insert Delete GetRandom O(1)\n" +
-            "LRU Cache\n" +
-            "Two Sum\n" +
-            "Jewels and Stones\n" +
-            "Intersection of Two Arrays II\n" +
-            "First Unique Character in a String"
+    val givenStr = "Line Reflection\n" +
+            "Summary Ranges\n" +
+            "String Compression\n" +
+            "Move Zeroes\n" +
+            "Maximize Distance to Closest Person\n" +
+            "Consecutive Characters\n" +
+            "Merge Sorted Array\n" +
+            "Squares of a Sorted Array\n" +
+            "Product of Array Except Self\n" +
+            "Continuous Subarray Sum\n" +
+            "Reverse Words in a String III"
     val prettyStr = givenStr
         .lowercase()
         .replace(" ", "_")

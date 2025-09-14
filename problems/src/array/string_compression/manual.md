@@ -12,7 +12,41 @@
 ## Структура:
 
 # 1. Решение
+```kotlin
+class Solution {
+    fun compress(chars: CharArray): Int {
+        if (chars.size <= 1) return chars.size
 
+        var writeIndex = 0
+        var readIndex = 0
+
+        while (readIndex < chars.size) {
+            val curr = chars[readIndex]
+            var count = 0
+
+            while (readIndex < chars.size && chars[readIndex] == curr){
+                readIndex += 1
+                count += 1
+            }
+
+            chars[writeIndex] = curr
+            writeIndex+=1
+
+            if (count > 1) {
+                val countStr = count.toString()
+                for (char in countStr) {
+                    chars[writeIndex] = char
+                    writeIndex+=1
+                }
+            }
+            count = 1
+        }
+        return writeIndex
+    }
+}
+```
+
+## Второе решение
 ```kotlin
 class Solution {
     fun compress(chars: CharArray): Int {
@@ -53,5 +87,48 @@ class Solution {
 
 
 # 4. Ваши объяснения
+```kotlin
+class Solution {
+    fun compress(chars: CharArray): Int {
+        if (chars.size <= 1) return chars.size
 
+        var writeIndex = 0
+        var count = 1
+
+        for (i in 1 until chars.size) {
+            val curr = chars[i]
+            val prev = chars[i - 1]
+
+            if (curr == prev) {
+                count += 1 
+            } else {
+                chars[writeIndex] = prev
+                writeIndex+=1
+
+                if (count > 1) {
+                    val countStr = count.toString()
+                    for (char in countStr) {
+                        chars[writeIndex] = char
+                        writeIndex+=1
+                    }
+                }
+                count = 1
+            }
+        }  
+
+        chars[writeIndex] = chars.last()
+        writeIndex += 1
+
+        if (count > 1) {
+            val countStr = count.toString()
+            for (char in countStr) {
+                chars[writeIndex] = char
+                writeIndex+=1
+            }
+        }
+
+        return writeIndex     
+    }
+}
+```
 
